@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Sales - Saler</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .brand-header {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #f0f0f0;
+        }
+
+        .brand-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card .original-price {
+            text-decoration: line-through;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .product-card .discount {
+            background-color: #ef4444;
+            color: #fff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+
+        .product-card .description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .product-card .cta {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-card .cta:hover {
+            background-color: #2563eb;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin-bottom: 1rem;
+            min-width: 200px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #555;
+        }
+        .product-card img {
+            width: 100%; /* Full width of the card */
+            height: auto; /* Automatic height to maintain aspect ratio */
+            max-height: 200px; /* Set a maximum height */
+            object-fit: contain; /* Ensures the entire image fits within the specified width/height */
+            margin-bottom: 1rem; /* Space below the image */
+        }
+        
+        .product-card {
+            height: 100%; /* Ensures all cards maintain the same height */
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .brand-header h1 {
+                font-size: 2rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Saler</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="electronics.html">Electronics</a></li>
+                <li><a href="#">Brands</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="brand-header">
+            <div class="container">
+                <h1>Apple Sales</h1>
+                <p>Discover amazing deals on Apple products</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="./assets/ip13.webp" alt="iPhone 13 Pro">
+                    <h3>iPhone 13 Pro</h3>
+                    <p class="price">$999 <span class="original-price">$1099</span> <span class="discount">9% OFF</span></p>
+                    <p class="description">A15 Bionic chip, Pro camera system, 5G capable</p>
+                    <a href="#" class="cta">Shop Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./assets/mbair.png" alt="MacBook Air (M1)">
+                    <h3>MacBook Air (M1)</h3>
+                    <p class="price">$899 <span class="original-price">$999</span> <span class="discount">10% OFF</span></p>
+                    <p class="description">Apple M1 chip, 13-inch Retina display, Up to 18 hours battery life</p>
+                    <a href="#" class="cta">Shop Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./assets/ipad.jpeg" alt="iPad Air">
+                    <h3>iPad Air</h3>
+                    <p class="price">$549 <span class="original-price">$599</span> <span class="discount">8% OFF</span></p>
+                    <p class="description">10.9-inch Liquid Retina display, A14 Bionic chip, Touch ID</p>
+                    <a href="#" class="cta">Shop Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./assets/awach.jpeg" alt="Apple Watch Series 7">
+                    <h3>Apple Watch Series 7</h3>
+                    <p class="price">$349 <span class="original-price">$399</span> <span class="discount">12% OFF</span></p>
+                    <p class="description">Always-On Retina display, ECG app, Blood Oxygen app</p>
+                    <a href="#" class="cta">Shop Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./assets/airpods.webp" alt="AirPods Pro">
+                    <h3>AirPods Pro</h3>
+                    <p class="price">$199 <span class="original-price">$249</span> <span class="discount">20% OFF</span></p>
+                    <p class="description">Active Noise Cancellation, Transparency mode, Adaptive EQ</p>
+                    <a href="#" class="cta">Shop Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./assets/imac.jpg" alt="iMac 24-inch">
+                    <h3>iMac 24-inch</h3>
+                    <p class="price">$1249 <span class="original-price">$1299</span> <span class="discount">4% OFF</span></p>
+                    <p class="description">4.5K Retina display, Apple M1 chip, 1080p FaceTime HD camera</p>
+                    <a href="#" class="cta">Shop Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./assets/apple-mac-mini-500x500.webp" alt="Mac mini">
+                    <h3>Mac mini</h3>
+                    <p class="price">$649 <span class="original-price">$699</span> <span class="discount">7% OFF</span></p>
+                    <p class="description">Apple M1 chip, 8-core CPU, 8-core GPU, 16-core Neural Engine</p>
+                    <a href="#" class="cta">Shop Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./assets/ipadpro.jpg" alt="iPad Pro">
+                    <h3>iPad Pro</h3>
+                    <p class="price">$749 <span class="original-price">$799</span> <span class="discount">6% OFF</span></p>
+                    <p class="description">M1 chip, Liquid Retina XDR display, 5G capable</p>
+                    <a href="#" class="cta">Shop Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Saler</h3>
+                    <p>Discover the best ongoing sales from top brands.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="electronics.html">Electronics</a></li>
+                        <li><a href="#">Brands</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@saler.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Saler. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
