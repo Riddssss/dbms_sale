@@ -142,36 +142,35 @@ export default function ElectronicProducts() {
   const addProduct = async (e) => {
     e.preventDefault();
     setError('');
-
-    if (!validateForm()) return; // Prevent adding product if validation fails
-
-    console.log('Adding product:', newProduct);
-
+  
+    if (!validateForm()) return;
+  
     try {
       const newProductData = {
         ...newProduct,
-        price: parseFloat(newProduct.price), // Ensure price is a number
+        price: parseFloat(newProduct.price),
+        product_id: parseInt(newProduct.product_id),
+        // Capitalize brand name to match database
+        brand: newProduct.brand.charAt(0).toUpperCase() + newProduct.brand.slice(1).toLowerCase()
       };
-
-      console.log('Formatted Product Data:', newProductData);
-
+  
       const response = await axios.post('http://localhost:8081/api/products', newProductData);
-
+  
       if (response.status === 201) {
-        console.log('Product added successfully:', response.data);
-        setNewProduct({ product_name: response.data.product_name, product_id: response.data.prdouct_id, brand: response.data.brand, price: response.data.price, availability: response.data.availability });
-        fetchProducts(); // Refresh the product list after adding
-      } else {
-        setError('Failed to add product. Please try again.');
+        // Reset form
+        setNewProduct({
+          product_name: '',
+          product_id: '',
+          brand: '',
+          price: 0,
+          availability: ''
+        });
+        // Refresh the product list
+        fetchProducts();
       }
     } catch (error) {
-      console.error('Error adding product:', error.response || error.message);
-      if (error.response) {
-        console.error('Error response data:', error.response.data); // Log error response data
-        setError(`Failed to add product: ${error.response.data.message || error.message}`);
-      } else {
-        setError('Failed to add product. Please try again.');
-      }
+      console.error('Error adding product:', error);
+      setError(error.response?.data?.error || 'Failed to add product. Please try again.');
     }
   };
 

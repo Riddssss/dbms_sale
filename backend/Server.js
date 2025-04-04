@@ -5,7 +5,8 @@ const { preinitModule } = require('react-dom');
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000' // Adjust the origin to match your React app's URL
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST', 'DELETE'] // Add allowed methods
 }));
 
 app.use(express.json()); // Middleware to parse JSON bodies
@@ -13,8 +14,8 @@ app.use(express.json()); // Middleware to parse JSON bodies
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'tanayk1103',
-    database: 'saler3'
+    password: 'root',
+    database: 'saler12'
 });
 
 db.connect((err) => {

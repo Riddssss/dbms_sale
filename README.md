@@ -10,7 +10,7 @@ A simple store aggregator that displays discounts across various brands and loca
 ## Technologies Used
 - Node.js
 - Express
-- MongoDB
+- Mysql
 - Frontend: HTML, CSS, JavaScript (can be specified based on the frontend tech you used)
 
 ## Installation
