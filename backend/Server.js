@@ -78,14 +78,14 @@ app.post("/api/products", (req, res) => {
         return res.status(400).json({ error: "All product details must be provided" });
     }
 
-    const sql = "INSERT INTO product (product_name, brand, price, availability, product_id) VALUES (?, ?, ?, ?, ?)";
+    const sql = "INSERT INTO products (product_name, brand, price, availability, product_id) VALUES (?, ?, ?, ?, ?)";
     db.query(sql, [name, brand, price, availability,product_id], (err, result) => {
         if (err) {
             console.error("Error adding product:", err);
             return res.status(500).json({ error: "An error occurred" });
         }
         const newProduct = {
-            id: result.insertId,
+            product_id: result.insertId,
             name,
             brand,
             price,
@@ -104,7 +104,7 @@ app.delete("/api/products/:id", (req, res) => {
         return res.status(400).json({ error: "Invalid product ID" });
     }
 
-    const sql = "DELETE FROM product WHERE product_id = ?";
+    const sql = "DELETE FROM products WHERE product_id = ?";
     db.query(sql, [productId], (err, result) => {
         if (err) {
             console.error("Error deleting product:", err);
