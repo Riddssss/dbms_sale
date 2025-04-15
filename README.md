@@ -16,7 +16,7 @@ A simple store aggregator that displays discounts across various brands and loca
 ## Installation
 
 1. Clone the repository:
-   git clone https://github.com/TanayK-node/dbms-final.git
+   git clone 
    
 2. Navigate to the project folder:
    cd dbms-final
